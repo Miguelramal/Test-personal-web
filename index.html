@@ -72,27 +72,25 @@
         }
     </style>
       <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const letters = document.querySelectorAll('.hover-text span');
+document.addEventListener('DOMContentLoaded', () => {
+    const letters = document.querySelectorAll('.hover-text span');
 
-            letters.forEach(letter => {
-                // Efecto hover para mouse
-                letter.addEventListener('mouseenter', () => {
-                    letter.classList.add('hover-active');
-                    setTimeout(() => {
-                        letter.classList.remove('hover-active');
-                    }, 100); // Tiempo en milisegundos (0.5 segundos)
-                });
+    // Manejo de interacción para dispositivos táctiles
+    document.addEventListener('touchmove', (event) => {
+        const touch = event.touches[0];
+        const target = document.elementFromPoint(touch.clientX, touch.clientY);
 
-                // Efecto hover para dispositivos táctiles
-                letter.addEventListener('touchstart', () => {
-                    letter.classList.add('hover-active');
-                    setTimeout(() => {
-                        letter.classList.remove('hover-active');
-                    }, 100); // Tiempo en milisegundos (0.5 segundos)
-                });
-            });
-        });
+        if (target && target.classList.contains('hover-text')) {
+            const letter = target.closest('span'); // Asegurarnos de que es una letra
+            if (letter) {
+                letter.classList.add('hover-active');
+                setTimeout(() => {
+                    letter.classList.remove('hover-active');
+                }, 500); // Duración del efecto hover
+            }
+        }
+    });
+});
     </script>
 </head>
 <body>
