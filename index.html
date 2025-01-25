@@ -67,16 +67,25 @@
         /* Diseño responsive para móviles */
         @media (max-width: 768px) {
             body {
-                font-size: 16px; /* Reducir el tamaño de la tipografía un 25% */
+                font-size: 20px; /* Reducir el tamaño de la tipografía un 25% */
             }
         }
     </style>
-    <script>
+      <script>
         document.addEventListener('DOMContentLoaded', () => {
             const letters = document.querySelectorAll('.hover-text span');
 
             letters.forEach(letter => {
+                // Efecto hover para mouse
                 letter.addEventListener('mouseenter', () => {
+                    letter.classList.add('hover-active');
+                    setTimeout(() => {
+                        letter.classList.remove('hover-active');
+                    }, 100); // Tiempo en milisegundos (0.5 segundos)
+                });
+
+                // Efecto hover para dispositivos táctiles
+                letter.addEventListener('touchstart', () => {
                     letter.classList.add('hover-active');
                     setTimeout(() => {
                         letter.classList.remove('hover-active');
