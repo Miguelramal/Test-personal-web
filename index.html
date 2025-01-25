@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Personal web</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de texto con interactividad</title>
+    <style>
+        /* Configuración global de estilos */
+        body {
+            margin: 16px; /* Márgenes de 16px */
+            font-family: Arial, sans-serif; /* Tipografía Arial */
+            font-size: 32px; /* Tamaño de texto para pantallas grandes */
+            color: black; /* Texto en color negro */
+            line-height: 1.2; /* Espaciado entre líneas para legibilidad */
+        }
+
+        /* Márgenes superiores adicionales */
+        .hover-text {
+            margin-top: 16px; /* Margen superior de 16px */
+        }
+
+        /* Estilos para cada letra individual */
+        .hover-text span {
+            display: inline-block; /* Cada letra se trata como un bloque inline */
+            transition: font-style 0.0s ease, color 0.0s ease; /* Transición suave */
+        }
+
+        /* Colores consecutivos para el hover */
+        .hover-text span:nth-child(5n+1) {
+            --hover-color: #2FAC66;
+        }
+        .hover-text span:nth-child(5n+2) {
+            --hover-color: #1D71B8;
+        }
+        .hover-text span:nth-child(5n+3) {
+            --hover-color: #FFCC03;
+        }
+        .hover-text span:nth-child(5n+4) {
+            --hover-color: #E591BD;
+        }
+        .hover-text span:nth-child(5n+5) {
+            --hover-color: #E94E1B;
+        }
+
+        /* Efecto hover en cada letra */
+        .hover-text span.hover-active {
+            font-style: italic; /* Letra en itálicas al pasar el ratón */
+            color: var(--hover-color); /* Color dinámico */
+        }
+
+        /* Estilo para la selección de texto */
+        .hover-text::selection, .hover-text span::selection {
+            background-color: #000000; /* Fondo amarillo para la selección de texto */
+            color: white; /* Color del texto en la selección */
+        }
+
+        /* Diseño responsive para móviles */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px; /* Reducir el tamaño de la tipografía un 25% */
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const letters = document.querySelectorAll('.hover-text span');
+
+            letters.forEach(letter => {
+                letter.addEventListener('mouseenter', () => {
+                    letter.classList.add('hover-active');
+                    setTimeout(() => {
+                        letter.classList.remove('hover-active');
+                    }, 100); // Tiempo en milisegundos (0.5 segundos)
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Texto de prueba editable -->
+    <p class="hover-text">
+        <!-- Cada letra, espacio y símbolo está envuelto en un span para efectos independientes -->
+        
+                <span>O</span><span>u</span><span>r</span> <span>r</span><span>o</span><span>o</span><span>t</span><span>s</span> <span>a</span><span>r</span><span>e</span> <span>f</span><span>i</span><span>r</span><span>m</span><span>l</span><span>y</span> <span>p</span><span>l</span><span>a</span><span>n</span><span>t</span><span>e</span><span>d</span> <span>i</span><span>n</span> <span>t</span><span>h</span><span>e</span> <span>r</span><span>e</span><span>a</span><span>l</span><span>m</span> <span>o</span><span>f</span> <span>e</span><span>d</span><span>i</span><span>t</span><span>o</span><span>r</span><span>i</span><span>a</span><span>l</span> <span>d</span><span>e</span><span>s</span><span>i</span><span>g</span><span>n</span>, <span>a</span><span>n</span><span>d</span> <span>o</span><span>u</span><span>r</span> <span>c</span><span>r</span><span>e</span><span>a</span><span>t</span><span>i</span><span>v</span><span>e</span> <span>e</span><span>n</span><span>d</span><span>e</span><span>a</span><span>v</span><span>o</span><span>r</span><span>s</span> <span>a</span><span>r</span><span>e</span> <span>d</span><span>r</span><span>i</span><span>v</span><span>e</span><span>n</span> <span>b</span><span>y</span> <span>a</span><span>n</span> <span>u</span><span>n</span><span>w</span><span>a</span><span>v</span><span>e</span><span>r</span><span>i</span><span>n</span><span>g</span> <span>c</span><span>o</span><span>m</span><span>m</span><span>i</span><span>t</span><span>m</span><span>e</span><span>n</span><span>t</span> <span>t</span><span>o</span> <span>c</span><span>o</span><span>n</span><span>t</span><span>e</span><span>m</span><span>p</span><span>o</span><span>r</span><span>a</span><span>r</span><span>y</span> <span>a</span><span>r</span><span>t</span>, <span>c</span><span>u</span><span>l</span><span>t</span><span>u</span><span>r</span><span>e</span>, <span>d</span><span>e</span><span>s</span><span>i</span><span>g</span><span>n</span>, <span>a</span><span>n</span><span>d</span> <span>c</span><span>u</span><span>t</span><span>t</span><span>i</span><span>n</span><span>g</span>-<span>e</span><span>d</span><span>g</span><span>e</span> <span>t</span><span>e</span><span>c</span><span>h</span><span>n</span><span>o</span><span>l</span><span>o</span><span>g</span><span>i</span><span>e</span><span>s</span>.
+    </p>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
